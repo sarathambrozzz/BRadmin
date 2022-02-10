@@ -2,6 +2,12 @@
 {% block content %}
   {% load static %}
 
+  <style>
+    table tr[data-href] {
+      cursor: pointer;
+    } 
+  </style>
+
 <div class="row ">
               <div class="col-12 grid-margin">
                 <div class="card">
@@ -24,11 +30,11 @@
                           </tr>
                         </thead>
                         <tbody>
-                          <tr>
+                          <tr data-href="{% url 'BRadmin_trainingprofile' %}">
                             
                             <td>
                                 <img src="{% static '/assets/images/faces/face1.jpg' %} " />
-                                <a href="/app/BRadmin_trainingprofile" style="text-decoration: none;color: #6C7293;">  <span class="ps-2">Henry Klein</span></a>
+                               <span class="ps-2">Henry Klein</span>
                             </td>
                           <td> 04 Dec 2019 </td>
                             <td> 04 Dec 2019 </td>
@@ -43,11 +49,11 @@
                          
                          
                           </tr>
-                          <tr>
+                          <tr data-href="{% url 'BRadmin_trainingprofile' %}">
                          
                             <td>
                                 <img src="{% static '/assets/images/faces/face2.jpg' %}" />
-                                <a href="/app/BRadmin_trainingprofile" style="text-decoration: none;color: #6C7293;">  <span class="ps-2">Estella Bryan</span></a>
+                               <span class="ps-2">Estella Bryan</span>
                             </td>
                           <td> 04 Dec 2019 </td>
                             <td> 04 Dec 2019 </td>
@@ -63,11 +69,11 @@
                          
                           </tr>
                          
-                          <tr>
+                          <tr data-href="{% url 'BRadmin_trainingprofile' %}">
                          
                              <td>
                                 <img src="{% static '/assets/images/faces/face5.jpg' %}" />
-                                <a href="/app/BRadmin_trainingprofile" style="text-decoration: none;color: #6C7293;">  <span class="ps-2">Lucy Abbott</span></a>
+                                <span class="ps-2">Lucy Abbott</span>
                             </td>
                           <td> 04 Dec 2019 </td>
                             <td> 04 Dec 2019 </td>
@@ -82,10 +88,10 @@
                          
                          
                           </tr>
-                          <tr>
+                          <tr data-href="{% url 'BRadmin_trainingprofile' %}">
                          <td>
                             <img src="{% static '/assets/images/faces/face4.jpg '%}" />
-                            <a href="/app/BRadmin_trainingprofile" style="text-decoration: none;color: #6C7293;">  <span class="ps-2">Sallie Reyes</span></a>
+                             <span class="ps-2">Sallie Reyes</span>
                             </td>
                           <td> 04 Dec 2019 </td>
                             <td> 04 Dec 2019 </td>
@@ -126,5 +132,14 @@ function myFunction() {
     }       
   }
 }
+</script>
+
+<script>
+  $(document).ready(function(){
+  $('table tr').click(function(){
+    window.location = $(this).data('href');
+    return false;
+});
+});
 </script>
   {% endblock %}

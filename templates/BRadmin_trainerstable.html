@@ -1,10 +1,14 @@
 {% extends 'BRadmin_index.html' %}
 {% block content %}
 {% load static %}
-
+<style>
+table tr[data-href] {
+  cursor: pointer;
+}
+</style>
 <div class="row ">
   <div class="col-12 grid-margin">
-    <div class="card">
+    <div class="card" >
       <div class="card-body">
         <h4 class="card-title">Trainers </h4>
         <div class="form-group">
@@ -14,7 +18,7 @@
         <div class="table-responsive">
           <table class="table" id="myTable">
             <thead>
-              <tr class="header">
+              <tr class="header" >
 
                 <th> Name </th>
                 <th> ID </th>
@@ -25,12 +29,11 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
+              <tr data-href="{% url 'BRadmin_Training' %}">
 
                 <td>
                   <img src="{% static '/assets/images/faces/face1.jpg' %} " />
-                  <a href="/app/BRadmin_Training" style="text-decoration: none;color: #6C7293;"> <span class="ps-2">Henry
-                      Klein</span></a>
+                   <span class="ps-2">Henry Klein</span></a>
                 </td>
                 <td> 001 </td>
                 <td> basepage </td>
@@ -41,12 +44,11 @@
 
 
               </tr>
-              <tr>
+              <tr data-href="{% url 'BRadmin_Training' %}">
 
                 <td>
                   <img src="{% static '/assets/images/faces/face2.jpg' %}" />
-                  <a href="/app/BRadmin_Training" style="text-decoration: none;color: #6C7293;"> <span
-                      class="ps-2">Estella Bryan</span></a>
+                  <span class="ps-2">Estella Bryan</span>
                 </td>
                 <td> 002 </td>
                 <td> infoxpage </td>
@@ -56,12 +58,11 @@
 
               </tr>
 
-              <tr>
+              <tr data-href="{% url 'BRadmin_Training' %}">
 
                 <td>
                   <img src="{% static '/assets/images/faces/face5.jpg' %}" />
-                  <a href="/app/BRadmin_Training" style="text-decoration: none;color: #6C7293;"> <span class="ps-2">Lucy
-                      Abbott</span></a>
+                  <span class="ps-2">Lucy Abbott</span>
                 </td>
                 <td> 003 </td>
                 <td> infoxpage </td>
@@ -70,11 +71,10 @@
 
 
               </tr>
-              <tr>
+              <tr data-href="{% url 'BRadmin_Training' %}">
                 <td>
                   <img src="{% static '/assets/images/faces/face4.jpg '%}" />
-                  <a href="/app/BRadmin_Training" style="text-decoration: none;color: #6C7293;"> <span
-                      class="ps-2">Sallie Reyes</span></a>
+                   <span class="ps-2">Sallie Reyes</span>
                 </td>
                 <td> 004 </td>
                 <td> infoxpage </td>
@@ -109,5 +109,15 @@
       }
     }
   }
+  
+</script>
+
+<script>
+  $(document).ready(function(){
+  $('table tr').click(function(){
+    window.location = $(this).data('href');
+    return false;
+});
+});
 </script>
 {% endblock %}
